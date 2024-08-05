@@ -35,7 +35,7 @@ jobs:
 
             -
                 name: 'Rector'
-                run: vendor/bin/rector --ansi --config .rector.dist.php
+                run: vendor/bin/rector --ansi --config ./rector/.rector.silverstripe.php
                 # @todo apply coding standard if used
 
             -
