@@ -2,7 +2,12 @@
 name: Rector
 
 on:
-    workflow_call: null
+    workflow_call:
+        secrets:
+            ACCESS_TOKEN:
+                type: string
+                required: true
+                default: ''
 
 jobs:
     rector:
