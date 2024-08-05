@@ -2,7 +2,7 @@
 name: Rector
 
 on:
-    pull_request: null
+    workflow_call: null
 
 jobs:
     rector:
