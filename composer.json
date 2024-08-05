@@ -1,0 +1,16 @@
+{
+    "name": "nswdpc/ci-files",
+    "description": "Collection of files for use in CI",
+    "type": "library",
+    "require": {
+      "php": "^8.1"
+    },
+    "require-dev": {
+        "cambis/silverstripe-rector": "^0.5.1",
+        "friendsofphp/php-cs-fixer": "^3",
+        "phpstan/phpstan": "^1.4",
+        "phpunit/phpunit": "^9.5",
+        "rector/rector": "^1",
+        "syntro/silverstripe-phpstan": "^1.0"
+    }
+}
