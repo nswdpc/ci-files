@@ -1,0 +1,14 @@
+parameters:
+    level: 9
+    paths:
+		- src
+		- tests
+    treatPhpDocTypesAsCertain: false
+    bootstrapFiles:
+        - vendor/syntro/silverstripe-phpstan/bootstrap.php
+    ignoreErrors:
+        - '#^Have you forgotten to add \"\@config\" for the property #'
+        - '#^Static property .+::\$.+ is never read, only written.#'
+        - '#^Class .+ referenced with incorrect case: .+\.$#'
+includes:
+    - vendor/syntro/silverstripe-phpstan/phpstan.neon
