@@ -39,7 +39,7 @@ jobs:
       -
         name: 'Rector'
         # config usess base of caller module
-        run: vendor/bin/rector process --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe.php
+        run: vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe.php
         # @todo apply coding standard if used
 
       -
