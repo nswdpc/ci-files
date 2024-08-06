@@ -1,8 +1,8 @@
 parameters:
     level: 9
     paths:
-		- src
-		- tests
+        - src
+        - tests
     treatPhpDocTypesAsCertain: false
     bootstrapFiles:
         - vendor/syntro/silverstripe-phpstan/bootstrap.php
