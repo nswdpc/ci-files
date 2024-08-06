@@ -9,6 +9,7 @@ on:
 
 jobs:
   rector:
+    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     steps:
       -
@@ -37,10 +38,9 @@ jobs:
           composer install --ansi --no-interaction --no-progress
 
       -
-        name: 'Rector'
-        # config usess base of caller module
+        name: 'Rector (process)'
+        # config uses base of caller module
         run: vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe.php
-        # @todo apply coding standard if used
 
       -
         # commit only to core contributors who have repository access
