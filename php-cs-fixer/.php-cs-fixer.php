@@ -3,7 +3,10 @@
  * Configuration file for https://github.com/PHP-CS-Fixer/PHP-CS-Fixer
  */
 $finder = PhpCsFixer\Finder::create()
-            ->in(__DIR__);
+            ->in([
+                __DIR__ . '/src',
+                __DIR__ . '/tests',
+            ]);
 
 $config = new PhpCsFixer\Config();
 return $config->setRules([
