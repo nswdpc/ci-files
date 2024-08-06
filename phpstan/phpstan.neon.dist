@@ -1,8 +1,8 @@
 parameters:
     level: 9
     paths:
-        - src
-        - tests
+        - ../../../../src
+        - ../../../../tests
     treatPhpDocTypesAsCertain: false
     bootstrapFiles:
         # this is the relative path to the caller
