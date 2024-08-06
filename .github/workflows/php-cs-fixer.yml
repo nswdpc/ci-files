@@ -9,7 +9,7 @@ on:
 
 jobs:
   php-cs-fixer:
-    if: ${{ github.event_name == 'push' || endsWith(github.ref_name, "-cs-fix") }}
+    if: ${{ github.event_name == 'push' || endsWith(github.ref_name, '-cs-fix") }}
     runs-on: ubuntu-latest
     steps:
       -
