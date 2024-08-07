@@ -41,4 +41,5 @@ jobs:
         name: 'PHPStan (analyse)'
         # run unless the branch contains this label
         if: ${{ !contains(github.ref_name, 'no-phpstan') }}
-        run: vendor/bin/phpstan analyse --ansi --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/phpstan.neon.dist
+        # config uses base of caller module
+        run: vendor/bin/phpstan analyse --ansi --no-progress --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/phpstan.neon.dist
