@@ -5,10 +5,7 @@
 name: Bundle
 
 on:
-  workflow_call:
-    secrets:
-      ACCESS_TOKEN:
-        required: true
+  workflow_call: null
 
 jobs:
   bundle:
@@ -21,7 +18,7 @@ jobs:
         if: github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          ref: ${{ github.head_ref }}
 
       -
         name: 'Setup PHP'
