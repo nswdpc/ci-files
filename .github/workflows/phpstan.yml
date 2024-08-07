@@ -9,6 +9,7 @@ on:
 
 jobs:
   phpstan:
+    name: 'phpstan'
     # applicable to pull requests where the branch name does not contain 'no-phpstan'
     if: ${{ github.event_name == 'pull_request' && !contains(github.ref_name, 'no-phpstan') }}
     runs-on: ubuntu-latest

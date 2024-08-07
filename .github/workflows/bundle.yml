@@ -11,8 +11,8 @@ on:
         required: true
 
 jobs:
-  code-quality-automation:
-    name: Automated code quality, updates and fixes
+  bundle:
+    name: 'php-cs-fixer and rector'
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     steps:

@@ -9,6 +9,7 @@ on:
 
 jobs:
   php-cs-fixer:
+    name: 'php-cs-fixer'
     # applicable to pull requests where the branch name does not contain 'no-cs-fix'
     if: ${{ github.event_name == 'pull_request' && !contains(github.ref_name, 'no-cs-fix') }}
     runs-on: ubuntu-latest

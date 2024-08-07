@@ -9,6 +9,7 @@ on:
 
 jobs:
   rector:
+    name: 'rector'
     if: ${{ github.event_name == 'pull_request' && !contains(github.ref_name, 'no-rector') }}
     runs-on: ubuntu-latest
     steps:
