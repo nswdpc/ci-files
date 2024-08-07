@@ -10,7 +10,7 @@ parameters:
     ignoreErrors:
         - '#^Have you forgotten to add \"\@config\" for the property #'
         - '#^Static property .+::\$.+ is never read, only written.#'
-        - '#^Class .+ referenced with incorrect case: .+\.$#'
+        # - '#^Class .+ referenced with incorrect case: .+\.$#'
 includes:
     # this is the relative path to the caller
     - ../../../../vendor/syntro/silverstripe-phpstan/phpstan.neon
