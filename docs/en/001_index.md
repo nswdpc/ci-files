@@ -57,6 +57,8 @@ By default, the configuration files will set the directories `src` and `tests` a
 
 ## Workflows
 
+See also [workflows](./docs/en/002_workflows.md)
+
 ### Silverstripe
 
 (silverstripe.yml)
