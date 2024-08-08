@@ -54,7 +54,8 @@ return $builder
     ->withSets([
         // SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52,
         // SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_413,
-        SilverstripeSetList::CODE_QUALITY
+        SilverstripeSetList::CODE_QUALITY,
+        \Rector\Set\ValueObject\DowngradeLevelSetList::DOWN_TO_PHP_81
     ])
 
     // define sets of rules
