@@ -35,7 +35,7 @@ Result (version may alter):
 
 ```json
 "require-dev": {
-    "nswdpc/ci-files": "*"
+    "nswdpc/ci-files": "dev-main"
 }
 ```
 
@@ -56,6 +56,8 @@ For Silverstripe refactoring, a silverstripe-vendormodule should also have the f
 By default, the configuration files will set the directories `src` and `tests` as the directories to find and update files within. These cannot be changed.
 
 ## Workflows
+
+See also [workflows](./002_workflows.md)
 
 ### Silverstripe
 
