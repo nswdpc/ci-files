@@ -8,5 +8,8 @@
         "phpstan/phpstan": "^1.4",
         "phpunit/phpunit": "^9.5",
         "rector/rector": "^1"
+    },
+    "suggest": {
+        "cambis/silverstripe-rector": "Rector rules for Silverstripe"
     }
 }
