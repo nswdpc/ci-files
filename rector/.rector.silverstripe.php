@@ -51,7 +51,7 @@ return $builder
     ->withSets([
         // \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52,
         // \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_413,
-        \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeLevelSetList::CODE_QUALITY,
+        \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeSetList::CODE_QUALITY,
         \Rector\Set\ValueObject\DowngradeLevelSetList::DOWN_TO_PHP_81
     ])
 
