@@ -35,7 +35,7 @@ Result (version may alter):
 
 ```json
 "require-dev": {
-    "nswdpc/ci-files": "*"
+    "nswdpc/ci-files": "dev-main"
 }
 ```
 
