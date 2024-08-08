@@ -10,6 +10,7 @@
         "rector/rector": "^1"
     },
     "suggest": {
-        "cambis/silverstripe-rector": "Rector rules for Silverstripe"
+        "cambis/silverstripe-rector": "Rector rules for Silverstripe",
+        "syntro/silverstripe-phpstan": "PhpStan support for Silverstripe"
     }
 }
