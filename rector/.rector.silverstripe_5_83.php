@@ -49,8 +49,8 @@ return $builder
     ])
 
     ->withSets([
-        \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeSetList::CODE_QUALITY,
-        \Rector\Set\ValueObject\DowngradeLevelSetList::DOWN_TO_PHP_81
+        \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52,
+        \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeSetList::CODE_QUALITY
     ])
 
     // define sets of rules
@@ -67,5 +67,5 @@ return $builder
         strictBooleans: true
     )
     ->withPhpSets(
-        php81: true
+        php83: true
     );

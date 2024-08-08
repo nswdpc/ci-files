@@ -42,7 +42,7 @@ jobs:
       -
         name: 'Rector (process)'
         # config uses base of caller module
-        run: vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe.php
+        run: vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_5_81.php
 
       -
         # commit only to core contributors who have repository access

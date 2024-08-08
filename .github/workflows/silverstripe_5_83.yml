@@ -25,7 +25,7 @@ jobs:
         name: 'Setup PHP'
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1
+          php-version: 8.3
           tools: composer:v2
           coverage: none
 
@@ -57,7 +57,7 @@ jobs:
         # run unless the branch contains this label
         if: ${{ !contains(github.ref_name, 'no-rector') }}
         # config uses base of caller module
-        run: vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe.php
+        run: vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_5_83.php
 
       -
         # commit only to core contributors who have repository access
