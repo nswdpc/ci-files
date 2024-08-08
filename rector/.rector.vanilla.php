@@ -49,9 +49,6 @@ return $builder
     ])
 
     ->withSets([
-        // \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52,
-        // \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_413,
-        \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeSetList::CODE_QUALITY,
         \Rector\Set\ValueObject\DowngradeLevelSetList::DOWN_TO_PHP_81
     ])
 
@@ -69,5 +66,5 @@ return $builder
         strictBooleans: true
     )
     ->withPhpSets(
-        php83: true
+        php81: true
     );

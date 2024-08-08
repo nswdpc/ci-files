@@ -1,0 +1,44 @@
+# github action that analyses code
+# requires suggested silverstripe phpstan module (see composer.json)
+name: phpstan
+
+on:
+  workflow_call: null
+
+jobs:
+  phpstan:
+    name: 'phpstan'
+    # applicable to pull requests where the branch name does not contain 'no-phpstan'
+    if: ${{ github.event_name == 'pull_request' && !contains(github.ref_name, 'no-phpstan') }}
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: 'Prep'
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      -
+        name: 'Setup PHP'
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+          tools: composer:v2
+          coverage: none
+
+      -
+        name: 'Composer'
+        run: |
+          composer config --no-plugins allow-plugins.composer/installers true
+          composer config --no-plugins allow-plugins.silverstripe/recipe-plugin true
+          composer config --no-plugins allow-plugins.silverstripe/vendor-plugin true
+          composer config --no-plugins allow-plugins.phpstan/extension-installer true
+          composer install --ansi --no-interaction --no-progress
+
+      -
+        name: 'PHPStan (analyse)'
+        # run unless the branch contains this label
+        if: ${{ !contains(github.ref_name, 'no-phpstan') }}
+        # config uses base of caller module
+        run: vendor/bin/phpstan analyse --ansi --no-progress --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/.phpstan.silverstripe.neon
