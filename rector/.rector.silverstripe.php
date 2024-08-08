@@ -71,5 +71,5 @@ return $builder
         strictBooleans: true
     )
     ->withPhpSets(
-        php83: true
+        php81: true
     );
