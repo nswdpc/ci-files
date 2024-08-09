@@ -10,9 +10,21 @@ declare(strict_types=1);
  * With no diff: ./vendor/bin/rector process --no-diffs -c .rector.dist.php vendor/vendorname/module
  */
 
+$ssBootstrap = realpath(__DIR__ . '/../../../cambis/silverstripe-rector/bootstrap.php');
+if(!is_file($ssBootstrap)) {
+    exit("Bootstrap 'cambis/silverstripe-rector/bootstrap.php' not found, is cambis/silverstripe-rector a dev requirement in composer.json?");
+}
+
 // @var \Rector\Configuration\RectorConfigBuilder $builder
 $builder = \Rector\Config\RectorConfig::configure();
 return $builder
+
+    ->withBootstrapFiles([
+        // cambis/silverstripe-rector bootstrap
+        $ssBootstrap,
+        // our bootstrap
+        __DIR__ . '/bootstrap/silverstripe.php',
+    ])
 
     ->withPaths([
         'src/',
@@ -39,7 +51,14 @@ return $builder
         \Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector::class,
 
         // Avoid applying this rule, encapsed strings are more readable
-        \Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class
+        \Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class,
+
+        // Avoid applying these Silverstripe Rector method annotation rules, for now
+        \Cambis\SilverstripeRector\Silverstripe413\Rector\Class_\AddDBFieldPropertyAnnotationsToDataObjectRector::class,
+        \Cambis\SilverstripeRector\Silverstripe413\Rector\Class_\AddBelongsToPropertyAndMethodAnnotationsToDataObjectRector::class,
+        \Cambis\SilverstripeRector\Silverstripe413\Rector\Class_\AddHasOnePropertyAndMethodAnnotationsToDataObjectRector::class,
+        \Cambis\SilverstripeRector\Silverstripe52\Rector\Class_\AddExtendsAnnotationToContentControllerRector::class,
+        \Cambis\SilverstripeRector\Silverstripe52\Rector\Class_\AddExtendsAnnotationToExtensionRector::class
 
     ])
 

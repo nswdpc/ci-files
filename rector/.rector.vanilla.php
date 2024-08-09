@@ -14,11 +14,6 @@ declare(strict_types=1);
 $builder = \Rector\Config\RectorConfig::configure();
 return $builder
 
-    ->withPaths([
-        'src/',
-        'tests/'
-    ])
-
     // skip rules example
     ->withSkip([
 
