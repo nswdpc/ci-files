@@ -10,9 +10,21 @@ declare(strict_types=1);
  * With no diff: ./vendor/bin/rector process --no-diffs -c .rector.dist.php vendor/vendorname/module
  */
 
+$ssBootstrap = realpath(__DIR__ . '/../../../cambis/silverstripe-rector/bootstrap.php');
+if(!is_file($ssBootstrap)) {
+    exit("Bootstrap 'cambis/silverstripe-rector/bootstrap.php' not found, is cambis/silverstripe-rector a dev requirement in composer.json?");
+}
+
 // @var \Rector\Configuration\RectorConfigBuilder $builder
 $builder = \Rector\Config\RectorConfig::configure();
 return $builder
+
+    ->withBootstrapFiles([
+        // cambis/silverstripe-rector bootstrap
+        $ssBootstrap,
+        // our bootstrap
+        __DIR__ . '/bootstrap/silverstripe.php',
+    ])
 
     ->withPaths([
         'src/',
