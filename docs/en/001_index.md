@@ -28,14 +28,14 @@ If you are not using a tagged nswdpc/ci-files, add the following at the root of 
 Require the module:
 
 ```sh
-composer require --dev nswdpc/ci-files
+composer require --dev nswdpc/ci-files:^1
 ```
 
 Result (version may alter):
 
 ```json
 "require-dev": {
-    "nswdpc/ci-files": "*"
+    "nswdpc/ci-files": "1.1.0"
 }
 ```
 

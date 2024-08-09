@@ -9,7 +9,7 @@ The workflows will improve code quality using `friendsofphp/php-cs-fixer` and au
 Require as a dev component in your project/module:
 
 ```sh
-composer require --dev nswdpc/ci-files:dev-main
+composer require --dev nswdpc/ci-files:^1
 ```
 
 ## Use
