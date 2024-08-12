@@ -51,7 +51,16 @@ return $builder
         \Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector::class,
 
         // Avoid applying this rule, encapsed strings are more readable
-        \Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class
+        \Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class,
+
+        // Avoid applying this rule, too verbose
+        \Rector\TypeDeclaration\Rector\BooleanAnd\BinaryOpNullableToInstanceofRector::class,
+
+        // Avoid applying this rule, too verbose
+        \Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector::class,
+
+        // Avoid applying this rule, not handling ?SomeClass return types appropriately
+        \Rector\Strict\Rector\Ternary\BooleanInTernaryOperatorRuleFixerRector::class
 
     ])
 
