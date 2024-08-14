@@ -10,19 +10,18 @@ declare(strict_types=1);
  * With no diff: ./vendor/bin/rector process --no-diffs -c .rector.dist.php vendor/vendorname/module
  */
 
-$ssBootstrap = realpath(__DIR__ . '/../../../cambis/silverstripe-rector/bootstrap.php');
-if(!is_file($ssBootstrap)) {
-    exit("Bootstrap 'cambis/silverstripe-rector/bootstrap.php' not found, is cambis/silverstripe-rector a dev requirement in composer.json?");
-}
+// common Silverstripe bootstrap
+require_once(__DIR__ . '/support/SilverstripeBootstrap.php');
+
+// common rules handling class
+require_once(__DIR__ . '/support/Rules.php');
 
 // @var \Rector\Configuration\RectorConfigBuilder $builder
 $builder = \Rector\Config\RectorConfig::configure();
 return $builder
 
     ->withBootstrapFiles([
-        // cambis/silverstripe-rector bootstrap
         $ssBootstrap,
-        // our bootstrap
         __DIR__ . '/bootstrap/silverstripe.php',
     ])
 
@@ -31,52 +30,20 @@ return $builder
         'tests/'
     ])
 
-    // skip rules example
-    ->withSkip([
+    ->withSkip(
+        \NSWDPC\Rector\Rules::commonSkipRules()
+    )
 
-        // Avoid applying this rule, due to the protected class method -> public subclass method -> protected sub-subclass method issue
-        \Rector\CodingStyle\Rector\ClassMethod\MakeInheritedMethodVisibilitySameAsParentRector::class,
-
-        // Avoid applying this rule, due to parent existing but with a different case
-        // Should never have a parent class method call without a parent class anyway
-        \Rector\DeadCode\Rector\StaticCall\RemoveParentCallWithoutParentRector::class,
-
-        // Avoid applying this rule, as it's an opinion
-        \Rector\CodeQuality\Rector\Concat\JoinStringConcatRector::class,
-
-        // Avoid applying this as it adds properties for called SS $db fields
-        \Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector::class,
-
-        //Avoid applying this rule, parent methods can have no void return type, better to be consistent
-        \Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector::class,
-
-        // Avoid applying this rule, encapsed strings are more readable
-        \Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class,
-
-        // Avoid applying this rule, too verbose
-        \Rector\TypeDeclaration\Rector\BooleanAnd\BinaryOpNullableToInstanceofRector::class,
-
-        // Avoid applying this rule, too verbose
-        \Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector::class,
-
-        // Avoid applying this rule, not handling ?SomeClass return types appropriately
-        \Rector\Strict\Rector\Ternary\BooleanInTernaryOperatorRuleFixerRector::class
-
-    ])
-
-    // register a single rule example
-    ->withRules([
-        // add specific rules here
-    ])
+    ->withRules(
+        \NSWDPC\Rector\Rules::commonRules()
+    )
 
     ->withSets([
         \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeSetList::CODE_QUALITY,
         \Rector\Set\ValueObject\DowngradeLevelSetList::DOWN_TO_PHP_81
     ])
 
-    // define sets of rules
     ->withPreparedSets(
-        //carbon: false,
         deadCode: true,
         codeQuality: true,
         codingStyle: true,
@@ -87,6 +54,7 @@ return $builder
         phpunit: false,
         strictBooleans: true
     )
+
     ->withPhpSets(
         php81: true
     );
