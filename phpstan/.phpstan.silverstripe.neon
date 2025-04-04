@@ -4,10 +4,6 @@ parameters:
         - ../../../../src
         - ../../../../tests
     treatPhpDocTypesAsCertain: false
-    ignoreErrors:
-        - '#^Have you forgotten to add \"\@config\" for the property #'
-        - '#^Static property .+::\$.+ is never read, only written.#'
-        # - '#^Class .+ referenced with incorrect case: .+\.$#'
 includes:
     # this is the relative path to the caller
     - ../../../../vendor/cambis/silverstan/extension.neon
