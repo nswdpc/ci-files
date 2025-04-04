@@ -5,12 +5,12 @@
     "require": {
         "php": "^8.3",
         "friendsofphp/php-cs-fixer": "^3",
-        "phpstan/phpstan": "^1.4",
+        "phpstan/phpstan": "^2",
         "phpunit/phpunit": "^9.5",
-        "rector/rector": "^1"
+        "rector/rector": "^2"
     },
     "suggest": {
         "cambis/silverstripe-rector": "Rector rules for Silverstripe",
-        "syntro/silverstripe-phpstan": "PhpStan support for Silverstripe"
+        "cambis/silverstan": "PhpStan support for Silverstripe"
     }
 }
