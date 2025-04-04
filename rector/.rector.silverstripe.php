@@ -21,7 +21,6 @@ $builder = \Rector\Config\RectorConfig::configure();
 return $builder
 
     ->withBootstrapFiles([
-        $ssBootstrap,
         __DIR__ . '/bootstrap/silverstripe.php',
     ])
 
