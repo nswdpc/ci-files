@@ -56,7 +56,8 @@ abstract class Rules {
             // Avoid applying this rule, not handling ?SomeClass return types appropriately
             \Rector\Strict\Rector\Ternary\BooleanInTernaryOperatorRuleFixerRector::class,
 
-            // This rule causing issues with class extends/inheritance
+            // These rules causing issues with class extends/inheritance
+            \Cambis\SilverstripeRector\Silverstripe52\Rector\Class_\AddExtendsAnnotationToExtensionRector::class,
             \Rector\Renaming\Rector\Name\RenameClassRector::class
 
         ];
