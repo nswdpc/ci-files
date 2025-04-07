@@ -30,7 +30,7 @@ return $builder
     ])
 
     ->withSkip(
-        \NSWDPC\Rector\Rules::commonSkipRules()
+        \NSWDPC\Rector\Rules::mergeSkipRules([])
     )
 
     ->withRules(
@@ -38,6 +38,7 @@ return $builder
     )
 
     ->withSets([
+        \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_53,
         \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeSetList::CODE_QUALITY
     ])
 
@@ -54,5 +55,5 @@ return $builder
     )
 
     ->withPhpSets(
-        php83: true
+        php84: true
     );

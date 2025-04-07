@@ -21,7 +21,6 @@ $builder = \Rector\Config\RectorConfig::configure();
 return $builder
 
     ->withBootstrapFiles([
-        $ssBootstrap,
         __DIR__ . '/bootstrap/silverstripe.php',
     ])
 
@@ -31,14 +30,7 @@ return $builder
     ])
 
     ->withSkip(
-        \NSWDPC\Rector\Rules::mergeSkipRules([
-            // Avoid applying these Silverstripe Rector method annotation rules, for now
-            \Cambis\SilverstripeRector\Silverstripe413\Rector\Class_\AddDBFieldPropertyAnnotationsToDataObjectRector::class,
-            \Cambis\SilverstripeRector\Silverstripe413\Rector\Class_\AddBelongsToPropertyAndMethodAnnotationsToDataObjectRector::class,
-            \Cambis\SilverstripeRector\Silverstripe413\Rector\Class_\AddHasOnePropertyAndMethodAnnotationsToDataObjectRector::class,
-            \Cambis\SilverstripeRector\Silverstripe52\Rector\Class_\AddExtendsAnnotationToContentControllerRector::class,
-            \Cambis\SilverstripeRector\Silverstripe52\Rector\Class_\AddExtendsAnnotationToExtensionRector::class
-        ])
+        \NSWDPC\Rector\Rules::mergeSkipRules([])
     )
 
     ->withRules(

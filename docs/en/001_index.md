@@ -28,14 +28,14 @@ If you are not using a tagged nswdpc/ci-files, add the following at the root of 
 Require the module:
 
 ```sh
-composer require --dev nswdpc/ci-files:^1
+composer require --dev nswdpc/ci-files:^3
 ```
 
-Result (version may alter):
+Result:
 
 ```json
 "require-dev": {
-    "nswdpc/ci-files": "1.1.0"
+    "nswdpc/ci-files": "^3"
 }
 ```
 
@@ -46,8 +46,8 @@ For Silverstripe refactoring, a silverstripe-vendormodule should also have the f
 
 ```json
 "require-dev": {
-    "cambis/silverstripe-rector": "^0.5.1",
-    "syntro/silverstripe-phpstan": "^5"
+    "cambis/silverstripe-rector": "^1",
+    "cambis/silverstan": "^1"
 }
 ```
 

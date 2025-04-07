@@ -29,6 +29,15 @@ Purpose: perform automated refactoring to the assigned PHP version with SS code 
 + Rector PHP set: php83
 + Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
 
+### silverstripe_5_84.yml
+
+Purpose: perform automated refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_53
+
++ Runs on PHP: 8.4
++ Includes php-cs-fixer
++ Rector PHP set: php84
++ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_53
+
 
 ## Standalone workflows
 
@@ -56,6 +65,14 @@ Purpose: perform automated rector only refactoring to the assigned PHP version w
 + Rector PHP set: php83
 + Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
 
+### rector.silverstripe_5_84.yml
+
+Purpose: perform automated rector only refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_53
+
++ Runs on PHP: 8.4
++ Rector PHP set: php84
++ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_54
+
 ### phpstan.silverstripe.yml
 
 Purpose: perform static analysis on the assigned PHP version
@@ -68,6 +85,12 @@ Purpose: perform static analysis on the assigned PHP version
 
 + Runs on PHP: 8.3
 
+### phpstan.silverstripe_84.yml
+
+Purpose: perform static analysis on the assigned PHP version
+
++ Runs on PHP: 8.4
+
 ### php-cs-fixer.yml
 
 Purpose: perform code standards fixing on the assigned PHP version
@@ -79,3 +102,9 @@ Purpose: perform code standards fixing on the assigned PHP version
 Purpose: perform code standards fixing on the assigned PHP version
 
 + Runs on PHP: 8.3
+
+### php-cs-fixer_84.yml
+
+Purpose: perform code standards fixing on the assigned PHP version
+
++ Runs on PHP: 8.4
