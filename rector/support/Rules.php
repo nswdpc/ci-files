@@ -54,11 +54,7 @@ abstract class Rules {
             \Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector::class,
 
             // Avoid applying this rule, not handling ?SomeClass return types appropriately
-            \Rector\Strict\Rector\Ternary\BooleanInTernaryOperatorRuleFixerRector::class,
-
-            // These rules causing issues with class extends/inheritance
-            \Cambis\SilverstripeRector\Silverstripe52\Rector\Class_\AddExtendsAnnotationToExtensionRector::class,
-            \Rector\Renaming\Rector\Name\RenameClassRector::class
+            \Rector\Strict\Rector\Ternary\BooleanInTernaryOperatorRuleFixerRector::class
 
         ];
     }
