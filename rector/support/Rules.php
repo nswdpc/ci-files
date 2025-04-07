@@ -54,7 +54,10 @@ abstract class Rules {
             \Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector::class,
 
             // Avoid applying this rule, not handling ?SomeClass return types appropriately
-            \Rector\Strict\Rector\Ternary\BooleanInTernaryOperatorRuleFixerRector::class
+            \Rector\Strict\Rector\Ternary\BooleanInTernaryOperatorRuleFixerRector::class,
+
+            // This rule causing issues with class extends/inheritance
+            \Rector\Renaming\Rector\Name\RenameClassRector::class
 
         ];
     }
@@ -65,4 +68,5 @@ abstract class Rules {
     public static function mergeSkipRules(array $rules = []): array {
         return array_unique(array_merge( self::commonSkipRules(), $rules));
     }
+
 }
