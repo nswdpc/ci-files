@@ -65,4 +65,5 @@ abstract class Rules {
     public static function mergeSkipRules(array $rules = []): array {
         return array_unique(array_merge( self::commonSkipRules(), $rules));
     }
+
 }

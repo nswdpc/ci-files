@@ -37,6 +37,10 @@ return $builder
         \NSWDPC\Rector\Rules::commonRules()
     )
 
+    ->withConfiguredRule(\Rector\Strict\Rector\If_\BooleanInIfConditionRuleFixerRector::class, [
+        'treat_as_non_empty' => true
+    ])
+
     ->withSets([
         \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeSetList::CODE_QUALITY
     ])

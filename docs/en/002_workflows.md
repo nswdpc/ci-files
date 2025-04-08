@@ -31,12 +31,12 @@ Purpose: perform automated refactoring to the assigned PHP version with SS code 
 
 ### silverstripe_5_84.yml
 
-Purpose: perform automated refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_53
+Purpose: perform automated refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_52
 
 + Runs on PHP: 8.4
 + Includes php-cs-fixer
 + Rector PHP set: php84
-+ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_53
++ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
 
 
 ## Standalone workflows
@@ -67,11 +67,11 @@ Purpose: perform automated rector only refactoring to the assigned PHP version w
 
 ### rector.silverstripe_5_84.yml
 
-Purpose: perform automated rector only refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_53
+Purpose: perform automated rector only refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_52
 
 + Runs on PHP: 8.4
 + Rector PHP set: php84
-+ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_54
++ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
 
 ### phpstan.silverstripe.yml
 
