@@ -25,8 +25,7 @@ return $builder
     ])
 
     ->withPaths([
-        'src/',
-        'tests/'
+        __DIR__
     ])
 
     ->withSkip(

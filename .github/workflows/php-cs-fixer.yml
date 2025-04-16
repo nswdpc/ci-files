@@ -41,7 +41,7 @@ jobs:
       -
         name: 'PHP-CS-Fixer (fix)'
         # config uses base of caller module
-        run: vendor/bin/php-cs-fixer fix --ansi --no-interaction --config vendor/nswdpc/ci-files/php-cs-fixer/.php-cs-fixer.php
+        run: vendor/bin/php-cs-fixer fix --ansi --no-interaction --config vendor/nswdpc/ci-files/php-cs-fixer/.php-cs-fixer.php src tests
 
       -
         # commit only to core contributors who have repository access
