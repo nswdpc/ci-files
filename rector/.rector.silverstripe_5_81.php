@@ -54,7 +54,6 @@ return $builder
         instanceOf: true,
         typeDeclarations: true,
         naming: false,
-        phpunit: false,
         strictBooleans: true
     )
 
