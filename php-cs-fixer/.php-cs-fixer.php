@@ -14,6 +14,7 @@ return $config->setRules([
             'blank_line_after_opening_tag' => true,
             'full_opening_tag' => true,
             'no_closing_tag' => true,
+            'no_unused_imports' => true
         ])
         ->setIndent("    ")
         ->setFinder($finder);
