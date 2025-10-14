@@ -4,41 +4,15 @@
 
 These workflows are designed to work in a vendor module scope.
 
-Optional repositories entries.
-This can be removed once the module is in packagist.
-
-```json
-"repositories": [
-    {
-        "type": "git",
-        "url": "https://github.com/nswdpc/ci-files.git"
-    }
-]
-```
-
-If you are not using a tagged nswdpc/ci-files, add the following at the root of the module's composer.json:
-
-```json
-{
-    "prefer-stable": true,
-    "minimum-stability": "dev"
-}
-```
-
 Require the module:
 
 ```sh
-composer require --dev nswdpc/ci-files:^3
+composer require --dev nswdpc/ci-files:^4
 ```
-
-Result:
-
-```json
-"require-dev": {
-    "nswdpc/ci-files": "^3"
-}
+or to use the latest v-4 dev branch:
+```sh
+composer require --dev nswdpc/ci-files:dev-v-4
 ```
-
 
 ### Silverstripe requirements
 
@@ -46,14 +20,10 @@ For Silverstripe refactoring, a silverstripe-vendormodule should also have the f
 
 ```json
 "require-dev": {
-    "cambis/silverstripe-rector": "^1",
-    "cambis/silverstan": "^1"
+    "cambis/silverstripe-rector": "^2",
+    "cambis/silverstan": "^2"
 }
 ```
-
-## Paths
-
-By default, the configuration files will set the directories `src` and `tests` as the directories to find and update files within. These cannot be changed.
 
 ## Workflows
 

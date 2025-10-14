@@ -10,6 +10,9 @@ declare(strict_types=1);
  * With no diff: ./vendor/bin/rector process --no-diffs -c .rector.dist.php vendor/vendorname/module
  */
 
+// common Silverstripe bootstrap
+require_once(__DIR__ . '/support/SilverstripeBootstrap.php');
+
 // common rules handling class
 require_once(__DIR__ . '/support/Rules.php');
 
@@ -17,8 +20,16 @@ require_once(__DIR__ . '/support/Rules.php');
 $builder = \Rector\Config\RectorConfig::configure();
 return $builder
 
+    ->withBootstrapFiles([
+        __DIR__ . '/bootstrap/silverstripe.php',
+    ])
+
+    ->withPaths([
+        __DIR__
+    ])
+
     ->withSkip(
-        \NSWDPC\Rector\Rules::commonSkipRules()
+        \NSWDPC\Rector\Rules::mergeSkipRules([])
     )
 
     ->withRules(
@@ -30,7 +41,8 @@ return $builder
     ])
 
     ->withSets([
-        \Rector\Set\ValueObject\DowngradeLevelSetList::DOWN_TO_PHP_81
+        \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_60,
+        \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeSetList::CODE_QUALITY
     ])
 
     ->withPreparedSets(

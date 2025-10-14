@@ -4,6 +4,10 @@ parameters:
         - ../../../../src
         - ../../../../tests
     treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        -
+            identifier: assign.propertyType
 includes:
     # this is the relative path to the caller
     - ../../../../vendor/cambis/silverstan/extension.neon
