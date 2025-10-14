@@ -1,110 +1,22 @@
 # Workflows
 
-## Bundle workflows
+All the bundled workflows can be found in `.github/workflows`. The file naming follows a somewhat standard of `application_version_phpversion.yml`.
 
-### silverstripe.yml
+Configuration files including the name "vanilla" are not tied to any framework.
 
-Purpose: perform automated refactoring to the assigned PHP version with SS code quality
+## Configurations
 
-+ Runs on PHP: 8.1
-+ Includes php-cs-fixer
-+ Rector PHP set: php81
-+ Rector sets: SilverstripeSetList::CODE_QUALITY
+You can reference the configuration files directly, e.g. on a shell or in a composer script.
 
-### silverstripe_5_81.yml
+### Composer script
 
-Purpose: perform automated refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_52
+```json
+"scripts": {
+    "phpstan-analyse": "./vendor/bin/phpstan analyse --ansi --no-progress --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/.phpstan.silverstripe.neon src/",
+```
 
-+ Runs on PHP: 8.1
-+ Includes php-cs-fixer
-+ Rector PHP set: php81
-+ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
+### Command
 
-### silverstripe_5_83.yml
-
-Purpose: perform automated refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_52
-
-+ Runs on PHP: 8.3
-+ Includes php-cs-fixer
-+ Rector PHP set: php83
-+ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
-
-### silverstripe_5_84.yml
-
-Purpose: perform automated refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_52
-
-+ Runs on PHP: 8.4
-+ Includes php-cs-fixer
-+ Rector PHP set: php84
-+ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
-
-
-## Standalone workflows
-
-### rector.silverstripe.yml
-
-Purpose: perform automated rector only refactoring to the assigned PHP version with SS code quality
-
-+ Runs on PHP: 8.1
-+ Rector PHP set: php81
-+ Rector sets: SilverstripeSetList::CODE_QUALITY
-
-### rector.silverstripe_5_81.yml
-
-Purpose: perform automated rector only refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_52
-
-+ Runs on PHP: 8.1
-+ Rector PHP set: php81
-+ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
-
-### rector.silverstripe_5_83.yml
-
-Purpose: perform automated rector only refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_52
-
-+ Runs on PHP: 8.3
-+ Rector PHP set: php83
-+ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
-
-### rector.silverstripe_5_84.yml
-
-Purpose: perform automated rector only refactoring to the assigned PHP version with SS code quality and SS UP_TO_SILVERSTRIPE_52
-
-+ Runs on PHP: 8.4
-+ Rector PHP set: php84
-+ Rector sets: SilverstripeSetList::CODE_QUALITY, SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_52
-
-### phpstan.silverstripe.yml
-
-Purpose: perform static analysis on the assigned PHP version
-
-+ Runs on PHP: 8.1
-
-### phpstan.silverstripe_83.yml
-
-Purpose: perform static analysis on the assigned PHP version
-
-+ Runs on PHP: 8.3
-
-### phpstan.silverstripe_84.yml
-
-Purpose: perform static analysis on the assigned PHP version
-
-+ Runs on PHP: 8.4
-
-### php-cs-fixer.yml
-
-Purpose: perform code standards fixing on the assigned PHP version
-
-+ Runs on PHP: 8.1
-
-### php-cs-fixer_83.yml
-
-Purpose: perform code standards fixing on the assigned PHP version
-
-+ Runs on PHP: 8.3
-
-### php-cs-fixer_84.yml
-
-Purpose: perform code standards fixing on the assigned PHP version
-
-+ Runs on PHP: 8.4
+```sh
+./vendor/bin/phpstan analyse --ansi --no-progress --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/.phpstan.silverstripe.neon src/
+```

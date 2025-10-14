@@ -1,25 +1,29 @@
-#  CI Files
+# Automated analysis and upgrade tools
 
-A collection of files and configuration for use in CI and development.
+A collection of files and configuration for upgrading and analysing your code in CI and development.
 
-* Code standards: `friendsofphp/php-cs-fixer`
-* Static analyis: `phpstan/phpstan` and
-* Automated code refactoring: `rector/rector`
+* Code standards updates using `friendsofphp/php-cs-fixer`
+* Static analyis using `phpstan/phpstan` and
+* Automated code refactoring using `rector/rector` to make upgrades faster and easier.
 
 ## Install
 
-Require as a dev component in your project/module:
+Require as a dev component in your project/module.
 
 ```sh
 composer require --dev nswdpc/ci-files:^4
 ```
+OR
 
-Use the relevant tag or dev-v-N branch as a dev requirement, depending on your refactoring requirements.
+```sh
+composer require --dev nswdpc/ci-files:dev-v-4
+```
+
+Use the relevant tag or dev-v-N branch or a tag, depending on your refactoring requirements. The branch will have the latest untagged changes in that major version.
 
 ## Use
 
 [Read the documentation](./docs/en/001_index.md)
-
 
 ## License
 
