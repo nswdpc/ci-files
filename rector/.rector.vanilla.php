@@ -25,10 +25,6 @@ return $builder
         \NSWDPC\Rector\Rules::commonRules()
     )
 
-    ->withConfiguredRule(\Rector\Strict\Rector\If_\BooleanInIfConditionRuleFixerRector::class, [
-        'treat_as_non_empty' => true
-    ])
-
     ->withSets([
         \Rector\Set\ValueObject\DowngradeLevelSetList::DOWN_TO_PHP_81
     ])
@@ -40,8 +36,7 @@ return $builder
         earlyReturn: false,
         instanceOf: true,
         typeDeclarations: true,
-        naming: false,
-        strictBooleans: true
+        naming: false
     )
 
     ->withPhpSets(

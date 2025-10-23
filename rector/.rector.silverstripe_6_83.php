@@ -36,10 +36,6 @@ return $builder
         \NSWDPC\Rector\Rules::commonRules()
     )
 
-    ->withConfiguredRule(\Rector\Strict\Rector\If_\BooleanInIfConditionRuleFixerRector::class, [
-        'treat_as_non_empty' => true
-    ])
-
     ->withSets([
         \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeLevelSetList::UP_TO_SILVERSTRIPE_60,
         \Cambis\SilverstripeRector\Set\ValueObject\SilverstripeSetList::CODE_QUALITY
@@ -52,8 +48,7 @@ return $builder
         earlyReturn: false,
         instanceOf: true,
         typeDeclarations: true,
-        naming: false,
-        strictBooleans: true
+        naming: false
     )
 
     ->withPhpSets(
