@@ -53,12 +53,6 @@ abstract class Rules {
             // Avoid applying this rule, too verbose
             \Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector::class,
 
-            // Avoid applying this rule, not handling ?SomeClass return types appropriately
-            \Rector\Strict\Rector\Ternary\BooleanInTernaryOperatorRuleFixerRector::class,
-
-            // Avoid applying as it causes an error from rector/rector 2.2.6 onwards
-            \Rector\Transform\Rector\Assign\PropertyFetchToMethodCallRector::class
-
         ];
     }
 
