@@ -37,6 +37,8 @@ jobs:
           composer config --no-plugins allow-plugins.silverstripe/vendor-plugin true
           composer config --no-plugins allow-plugins.phpstan/extension-installer true
           composer install --ansi --no-interaction --no-progress
+        env:
+          COMPOSER_POLICY_ADVISORIES_BLOCK: "0"
 
       -
         name: 'Rector (process)'
