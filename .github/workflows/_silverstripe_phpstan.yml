@@ -1,7 +1,7 @@
 # This based bundle of steps is called by the relevant workflows
 # passing in the required parameters
 # Provides:
-# - phpstan analyse
+# - phpstan analyse, run as a matrix across the supplied PHP versions
 name: Silverstripe PHPStan (base)
 
 on:
@@ -12,17 +12,22 @@ on:
         required: false
         type: string
         default: '.phpstan.silverstripe.neon'
-      php-version:
-        description: 'PHP version the tooling itself runs under'
+      php-versions:
+        description: 'JSON array of PHP versions to run phpstan against, e.g. ["8.3","8.4","8.5"]'
         required: false
         type: string
-        default: '8.5'
+        default: '["8.3","8.4","8.5"]'
 
 jobs:
   bundle:
-    name: 'phpstan'
-    if: ${{ github.event_name == 'pull_request' && !contains(github.head_ref, 'no-phpstan')  }}
+    name: 'phpstan (PHP ${{ matrix.php-version }})'
+    if: ${{ github.event_name == 'pull_request' && !contains(github.head_ref, 'no-phpstan') }}
     runs-on: ubuntu-latest
+    strategy:
+      # let every PHP version run and report, don't cancel the rest on first failure
+      fail-fast: false
+      matrix:
+        php-version: ${{ fromJson(inputs.php-versions) }}
     steps:
       -
         name: 'Prep'
@@ -35,7 +40,7 @@ jobs:
         name: 'Setup PHP'
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ inputs.php-version }}
+          php-version: ${{ matrix.php-version }}
           tools: composer:v2
           coverage: none
 

@@ -15,4 +15,3 @@ jobs:
     uses: ./.github/workflows/_silverstripe_phpstan.yml
     with:
       phpstan-config: .phpstan.silverstripe.neon
-      php-version: '8.3'
