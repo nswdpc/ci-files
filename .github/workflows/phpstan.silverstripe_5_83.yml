@@ -1,4 +1,4 @@
-# PHPStan workflow retained for BC, see phpstan.silverstripe.yml
+# PHPStan targeting only php 8.3
 name: phpstan silverstripe
 
 on:
@@ -9,3 +9,4 @@ jobs:
     uses: ./.github/workflows/_silverstripe_phpstan.yml
     with:
       phpstan-config: .phpstan.silverstripe.neon
+      php-versions: '["8.3"]'

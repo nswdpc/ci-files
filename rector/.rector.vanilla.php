@@ -25,10 +25,6 @@ return $builder
         \NSWDPC\Rector\Rules::commonRules()
     )
 
-    ->withSets([
-        \Rector\Set\ValueObject\DowngradeLevelSetList::DOWN_TO_PHP_81
-    ])
-
     ->withPreparedSets(
         deadCode: true,
         codeQuality: true,

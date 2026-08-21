@@ -1,7 +1,7 @@
 # Bundle workflow
-# + PHP 8.4
-# + Silverstripe 5
-# + Rector phpset: php84
+# + PHP 8.5
+# + Silverstripe 6
+# + Rector phpset: php85
 # Contains:
 # + rector process
 # + php-cs-fixer fix
@@ -16,5 +16,5 @@ jobs:
   bundle:
     uses: ./.github/workflows/_silverstripe_bundle.yml
     with:
-      rector-config: .rector.silverstripe_5_84.php
-      php-version: '8.4'
+      rector-config: .rector.silverstripe_6_85.php
+      php-version: '8.5'

@@ -52,5 +52,5 @@ return $builder
     )
 
     ->withPhpSets(
-        php83: true
+        php85: true
     );

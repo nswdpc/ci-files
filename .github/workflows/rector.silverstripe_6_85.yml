@@ -1,7 +1,7 @@
 # Rector workflow
 # + PHP 8.5
 # + Silverstripe 6
-# + Rector phpset: php84
+# + Rector phpset: php85
 # Contains:
 # + rector process
 # Requires
@@ -15,5 +15,5 @@ jobs:
   bundle:
     uses: ./.github/workflows/_silverstripe_rector.yml
     with:
-      rector-config: .rector.silverstripe_6_84.php
+      rector-config: .rector.silverstripe_6_85.php
       php-version: '8.5'
