@@ -9,7 +9,7 @@ jobs:
   phpstan:
     name: 'phpstan'
     # applicable to pull requests where the branch name does not contain 'no-phpstan'
-    if: ${{ github.event_name == 'pull_request' && !contains(github.ref_name, 'no-phpstan') }}
+    if: ${{ github.event_name == 'pull_request' && !contains(github.head_ref, 'no-phpstan') }}
     runs-on: ubuntu-latest
     steps:
       -
@@ -41,6 +41,6 @@ jobs:
       -
         name: 'PHPStan (analyse)'
         # run unless the branch contains this label
-        if: ${{ !contains(github.ref_name, 'no-phpstan') }}
+        if: ${{ !contains(github.head_ref, 'no-phpstan') }}
         # config uses base of caller module
         run: vendor/bin/phpstan analyse --ansi --no-progress --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/.phpstan.silverstripe.neon

@@ -43,7 +43,7 @@ jobs:
       -
         name: 'PHP-CS-Fixer (fix)'
         # run unless the branch contains this label
-        if: ${{ !contains(github.ref_name, 'no-cs-fix') }}
+        if: ${{ !contains(github.head_ref, 'no-cs-fix') }}
         # config uses base of caller module
         run: vendor/bin/php-cs-fixer fix --ansi --no-interaction --show-progress=none --config vendor/nswdpc/ci-files/php-cs-fixer/.php-cs-fixer.php src tests
 
@@ -57,7 +57,7 @@ jobs:
       -
         name: 'Rector (process)'
         # run unless the branch contains this label
-        if: ${{ !contains(github.ref_name, 'no-rector') }}
+        if: ${{ !contains(github.head_ref, 'no-rector') }}
         # config uses base of caller module
         run: vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe.php src tests
 
