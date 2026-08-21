@@ -44,9 +44,6 @@ abstract class Rules {
             // Avoid applying this rule, too verbose
             \Rector\TypeDeclaration\Rector\BooleanAnd\BinaryOpNullableToInstanceofRector::class,
 
-            // Avoid applying this rule, too verbose
-            \Rector\CodeQuality\Rector\If_\ExplicitBoolCompareRector::class,
-
         ];
     }
 
