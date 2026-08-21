@@ -41,9 +41,6 @@ abstract class Rules {
             //Avoid applying this rule, parent methods can have no void return type, better to be consistent
             \Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector::class,
 
-            // Avoid applying this rule, encapsed strings are more readable
-            \Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector::class,
-
             // Avoid applying this rule, too verbose
             \Rector\TypeDeclaration\Rector\BooleanAnd\BinaryOpNullableToInstanceofRector::class,
 
