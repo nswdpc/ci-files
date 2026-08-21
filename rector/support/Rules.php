@@ -35,9 +35,6 @@ abstract class Rules {
             // Should never have a parent class method call without a parent class anyway
             \Rector\DeadCode\Rector\StaticCall\RemoveParentCallWithoutParentRector::class,
 
-            // Avoid applying this rule, as it's an opinion
-            \Rector\CodeQuality\Rector\Concat\JoinStringConcatRector::class,
-
             // Avoid applying this as it adds properties for called SS $db fields
             \Rector\CodeQuality\Rector\Class_\CompleteDynamicPropertiesRector::class,
 
