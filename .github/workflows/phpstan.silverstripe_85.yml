@@ -1,5 +1,5 @@
 # PHPStan workflow
-# + PHP 8.3
+# + PHP 8.5
 # + Silverstripe
 # Contains:
 # + phpstan analyse
@@ -15,4 +15,4 @@ jobs:
     uses: ./.github/workflows/_silverstripe_phpstan.yml
     with:
       phpstan-config: .phpstan.silverstripe.neon
-      php-version: '8.3'
+      php-version: '8.5'

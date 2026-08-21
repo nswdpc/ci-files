@@ -18,6 +18,11 @@ OR
 ```sh
 composer require --dev nswdpc/ci-files:dev-v-4
 ```
+OR
+
+```sh
+composer require --dev nswdpc/ci-files:dev-v-4#abcd1234
+```
 
 Use the relevant tag or dev-v-N branch or a tag, depending on your refactoring requirements. The branch will have the latest untagged changes in that major version.
 

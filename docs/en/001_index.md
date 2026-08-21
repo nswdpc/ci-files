@@ -17,6 +17,12 @@ or to use the latest dev branch for the most recent configuration updates:
 composer require --dev nswdpc/ci-files:dev-v-4
 ```
 
+or use a commit hash
+
+```sh
+composer require --dev nswdpc/ci-files:dev-v-4#abcd1234
+```
+
 ### Should I run this in production?
 
 No. These tools are designed to run as development requirements on a developer's machine or within a CI process as an aid to improving and upgrading code.
@@ -76,14 +82,14 @@ For local analysis & refactoring of a composer vendor module, you must clone the
 4. Observe the changes made or suggested, and make any required changes and fixes
 5. Commit changes when done and follow your normal merge request process
 
-For easy access to analysis and refactoring, add scripts to your composer.json:
+For easy access to analysis and refactoring, add scripts to your module's composer.json:
 
 ```json
 "scripts": {
-    "phpstan-analyse": "./vendor/bin/phpstan analyse --ansi --no-progress --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/.phpstan.silverstripe.neon src/",
-    "rector-dryrun": "./vendor/bin/rector process --dry-run --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_53_83.php src/ tests/*.php",
-    "rector-process": "./vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_53_83.php src/ tests/*.php",
-    "phpcsfixer-fix": "./vendor/bin/php-cs-fixer fix --ansi --no-interaction --config vendor/nswdpc/ci-files/php-cs-fixer/.php-cs-fixer.php src/"
+    "phpstan-analyse": "./vendor/bin/phpstan analyse --ansi --no-progress --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/.phpstan.silverstripe.neon src/ tests/",
+    "rector-dryrun": "./vendor/bin/rector process --dry-run --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_6_83.php src/ tests/",
+    "rector-process": "./vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_6_83.php src/ tests/",
+    "phpcsfixer-fix": "./vendor/bin/php-cs-fixer fix --ansi --no-interaction --config vendor/nswdpc/ci-files/php-cs-fixer/.php-cs-fixer.php src/ tests/"
 },
 ```
 
@@ -113,10 +119,10 @@ For easy access to analysis and refactoring, add scripts to your composer.json. 
 
 ```json
 "scripts": {
-    "phpstan-analyse": "./vendor/bin/phpstan analyse --ansi --no-progress --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/.phpstan.silverstripe.neon app/src/ app/tests/*.php",
-    "rector-dryrun": "./vendor/bin/rector process --dry-run --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_53_83.php app/src/ app/tests/*.php",
-    "rector-process": "./vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_53_83.php app/src/ app/tests/*.php",
-    "phpcsfixer-fix": "./vendor/bin/php-cs-fixer fix --ansi --no-interaction --config vendor/nswdpc/ci-files/php-cs-fixer/.php-cs-fixer.php app/src/ app/tests/*.php"
+    "phpstan-analyse": "./vendor/bin/phpstan analyse --ansi --no-progress --no-interaction --configuration vendor/nswdpc/ci-files/phpstan/.phpstan.silverstripe.neon app/src/ app/tests/",
+    "rector-dryrun": "./vendor/bin/rector process --dry-run --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_6_83.php app/src/ app/tests/",
+    "rector-process": "./vendor/bin/rector process --no-diffs --ansi --config vendor/nswdpc/ci-files/rector/.rector.silverstripe_6_83.php app/src/ app/tests/",
+    "phpcsfixer-fix": "./vendor/bin/php-cs-fixer fix --ansi --no-interaction --config vendor/nswdpc/ci-files/php-cs-fixer/.php-cs-fixer.php app/src/ app/tests/"
 },
 ```
 
@@ -141,16 +147,17 @@ Automated refactoring can be done e.g. on a pull request by referencing the rele
 
 ```yml
 # ./.github/workflows/my_pr_workflow.yml
-name: add your action name
+name: CI
 
 on:
+  # Run on a pull request
   pull_request: null
 
 jobs:
   # run automated refactoring and code standards
   Silverstripe:
     name: 'Silverstripe (bundle)'
-    uses: nswdpc/ci-files/.github/workflows/silverstripe_53_83.yml@v-4
+    uses: nswdpc/ci-files/.github/workflows/silverstripe_6_83.yml@v-4
   # run automated static analysis
   PHPStan:
     name: 'PHPStan (analyse)'
