@@ -1,4 +1,7 @@
 parameters:
+    parallel:
+        # 2.2.12 issue, drop to 1 process
+        maximumNumberOfProcesses: 1
     level: 5
     paths:
         - ../../../../src
